@@ -88,6 +88,16 @@
 	
 						</code>
 					</pre>
+					<aside class="notes">
+						Actually all our modern LLM usage is agentic
+						All LLMs use web search as a tool
+						They do reasoning (chain of thought)
+						The output or the result is somewhat constrained in general. 
+						When we give Claude a prompt, it gives us a text response.
+						Not a phone call to make a reservation, it cannot wire money or 
+						trade stocks, it cannot call us a taxi etc. etc.
+						Most importantly it cannot edit files and write code for you.
+					</aside>
 				</section>
 				
 				<section>
@@ -115,7 +125,28 @@
 				</section>
 
 				<section>
-					Run above MCP server locally to make sure no errors.
+					<h1>MCP</h1>
+					<small>*in a nutshell</small>
+					<ul>
+						<li>
+							Tell the LLM about tools
+						</li>
+						<li>
+							Model decides to execute the tool (tool is run locally, eg. jira reads about ticket, code is committed, github tool creates PR)
+						</li>
+						<li>
+							Model adds the result to its context window
+						</li>
+						<li>
+							Model continues reasoning (with the new context, is goal achieved?)
+						</li>
+					</ul>
+					<aside class="notes">
+						Context window is like working memory of an LLM
+						Tools add context to the LLM and also do action
+
+						Want to reference to https://ampcode.com/how-to-build-an-agent
+					</aside>
 				</section>
 			</div>
 		</div>
