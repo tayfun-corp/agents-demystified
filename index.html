@@ -12,12 +12,111 @@
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+		
+		<style>
+			.metadata-box {
+				background: rgba(255, 255, 255, 0.1);
+				border: 0.1em solid rgba(255, 255, 255, 0.3);
+				border-radius: 0.5em;
+				padding: 1em;
+				margin: 1.5em auto;
+				max-width: 20em;
+				font-size: 0.7em;
+				line-height: 1.4;
+				backdrop-filter: blur(0.3em);
+				box-shadow: 0 0.2em 1em rgba(0, 0, 0, 0.3);
+			}
+			
+			.metadata-box p {
+				margin: 0.3em 0;
+				color: rgba(255, 255, 255, 0.9);
+			}
+			
+			.metadata-box .author {
+				font-weight: bold;
+				font-size: 1.1em;
+				color: #ffffff;
+			}
+			
+			.metadata-box .company {
+				font-style: italic;
+				color: rgba(255, 255, 255, 0.8);
+			}
+			
+			.metadata-box .date {
+				color: rgba(255, 255, 255, 0.7);
+				font-size: 0.9em;
+			}
+		</style>
 	</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>
+					<h1>Agents Demystified</h1>
+					<div class="metadata-box">
+						<p class="author">Tayfun Sen</p>
+						<p class="company">OakNorth</p>
+						<p class="date">2025-07-06</p>
+					</div>
+				</section>
+
+				<section>
+					<h1>My idea of an agent</h1>
+					<img src="assets/agent-smith.gif" alt="Agent Smith from Matrix" style="width: 75%; height: auto;">
+				</section>
+
+				<section>
+					<h1>What's in a name?</h1>
+					<small>* (a rose by any other name etc.)</small>
+					<p>
+						Some characteristics of an agent:
+					</p>
+					<ul>
+						<li>Goal-directed</li>
+						<li>Having autonomy</li>
+						<li>Using tools</li>
+					</ul>
+					<pre>
+						<code data-line-numbers="0|2-4|5-6|0-10" data-trim data-noescape class="language-python">
+	# Simplified agent loop
+	while not goal_achieved:
+			observation = perceive_environment()
+			action = decide_action(observation, history)
+			result = execute_action(action)
+			history.append((action, result))
+	
+						</code>
+					</pre>
+				</section>
+				
+				<section>
+					<h1>MCP</h1>
+					<small>*Model Context Protocol</small>
+					<p>Context is key</p>
+					<pre>
+						<code data-trim data-noescape class="language-python">
+import os
+
+from mcp.server import Server
+
+
+server = Server("ls-server")
+
+@server.tool()
+async def list_files(path: str = ".") -> str:
+		files = os.listdir(path)
+		return "\n".join(files)
+
+server.register(list_files)
+server.run()
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					Run above MCP server locally to make sure no errors.
+				</section>
 			</div>
 		</div>
 
