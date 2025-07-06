@@ -93,25 +93,25 @@
 				<section>
 					<h1>MCP</h1>
 					<small>*Model Context Protocol</small>
-					<p>Context is key</p>
 					<pre>
 						<code data-trim data-noescape class="language-python">
-import os
-
-from mcp.server import Server
-
-
-server = Server("ls-server")
-
-@server.tool()
-async def list_files(path: str = ".") -> str:
-		files = os.listdir(path)
-		return "\n".join(files)
-
-server.register(list_files)
-server.run()
+							import os
+							from mcp.server.fastmcp import FastMCP
+							
+							mcp = FastMCP("ls")
+							
+							@mcp.tool()
+							def list_files(path: str = ".") -> str:
+									files = os.listdir(path)
+									return "\n".join(files)
+							
+							if __name__ == "__main__":
+									mcp.run(transport='stdio')
 						</code>
 					</pre>
+					<aside class="notes">
+						Context is key.
+					</aside>
 				</section>
 
 				<section>

@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "list-files": {
+      "command": "/Users/tayfun.sen/.local/bin/uv",
+      "args": [
+        "--directory",
+        "/Users/tayfun.sen/Documents/presentations/agents-demystified/code/example_mcp",
+        "run",
+        "main.py"
+      ]
+    }
+  }
+}
