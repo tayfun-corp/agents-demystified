@@ -121,6 +121,12 @@
 					</pre>
 					<aside class="notes">
 						Context is key.
+						```
+						echo '{"jsonrpc":"2.0","method":"initialize","params":{"protocolVersion":"0.1.0","capabilities":{},"clientInfo":{"name":"test-client","version":"1.0.0"}},"id":1}' | uv run main.py
+						```
+
+						https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview#tool-use-system-prompt
+
 					</aside>
 				</section>
 
@@ -132,7 +138,7 @@
 							Tell the LLM about tools
 						</li>
 						<li>
-							Model decides to execute the tool (tool is run locally, eg. jira reads about ticket, code is committed, github tool creates PR)
+							Model decides to execute the tool (client tool is run locally, eg. jira reads about ticket, code is committed, github tool creates PR; but there's also server tool like web search)
 						</li>
 						<li>
 							Model adds the result to its context window
