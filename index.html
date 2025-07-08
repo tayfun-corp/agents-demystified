@@ -12,7 +12,7 @@
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-		
+
 		<style>
 			.metadata-box {
 				background: rgba(255, 255, 255, 0.1);
@@ -26,23 +26,23 @@
 				backdrop-filter: blur(0.3em);
 				box-shadow: 0 0.2em 1em rgba(0, 0, 0, 0.3);
 			}
-			
+
 			.metadata-box p {
 				margin: 0.3em 0;
 				color: rgba(255, 255, 255, 0.9);
 			}
-			
+
 			.metadata-box .author {
 				font-weight: bold;
 				font-size: 1.1em;
 				color: #ffffff;
 			}
-			
+
 			.metadata-box .company {
 				font-style: italic;
 				color: rgba(255, 255, 255, 0.8);
 			}
-			
+
 			.metadata-box .date {
 				color: rgba(255, 255, 255, 0.7);
 				font-size: 0.9em;
@@ -54,6 +54,7 @@
 			<div class="slides">
 				<section>
 					<h1>Agents Demystified</h1>
+          <small>* or how you can also build your own 20 billion $ company</small>
 					<div class="metadata-box">
 						<p class="author">Tayfun Sen</p>
 						<p class="company">OakNorth</p>
@@ -85,21 +86,21 @@
 			action = decide_action(observation, history)
 			result = execute_action(action)
 			history.append((action, result))
-	
+
 						</code>
 					</pre>
 					<aside class="notes">
 						Actually all our modern LLM usage is agentic
 						All LLMs use web search as a tool
 						They do reasoning (chain of thought)
-						The output or the result is somewhat constrained in general. 
+						The output or the result is somewhat constrained in general.
 						When we give Claude a prompt, it gives us a text response.
-						Not a phone call to make a reservation, it cannot wire money or 
+						Not a phone call to make a reservation, it cannot wire money or
 						trade stocks, it cannot call us a taxi etc. etc.
 						Most importantly it cannot edit files and write code for you.
 					</aside>
 				</section>
-				
+
 				<section>
 					<h1>MCP</h1>
 					<small>*Model Context Protocol</small>
@@ -107,14 +108,14 @@
 						<code data-trim data-noescape class="language-python">
 							import os
 							from mcp.server.fastmcp import FastMCP
-							
+
 							mcp = FastMCP("ls")
-							
+
 							@mcp.tool()
 							def list_files(path: str = ".") -> str:
 									files = os.listdir(path)
 									return "\n".join(files)
-							
+
 							if __name__ == "__main__":
 									mcp.run(transport='stdio')
 						</code>
@@ -152,6 +153,9 @@
 						Tools add context to the LLM and also do action
 
 						Want to reference to https://ampcode.com/how-to-build-an-agent
+            Add edit file which simply does replace str
+            Add create file which simply does touch
+            Ask it to code fizzbuzz, run it. Maybe add a bug. Maybe let it change fizz to OakNorth and Buzz to Rocks.
 					</aside>
 				</section>
 			</div>

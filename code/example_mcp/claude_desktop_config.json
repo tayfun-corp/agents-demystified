@@ -1,6 +1,6 @@
 {
   "mcpServers": {
-    "list-files": {
+    "file-manager": {
       "command": "/Users/tayfun.sen/.local/bin/uv",
       "args": [
         "--directory",

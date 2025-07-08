@@ -21,7 +21,7 @@ uv run main.py
 To let Claude Desktop app know about the new MCP server, you need to open file `claude_desktop_config.json`, change `uv` path and `main.py` directory to your local paths and copy the file:
 
 ```bash
-cp claude_desktop_config.json ~/Library/Application\ Support/Claude/
+cp ./code/example_mcp/claude_desktop_config.json ~/Library/Application\ Support/Claude/
 ```
 
 Next time you open Claude Desktop App, you should see new tool listed. See [MCP docs](https://modelcontextprotocol.io/quickstart/server#test-with-commands) if you run into any issues.
