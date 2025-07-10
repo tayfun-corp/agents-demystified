@@ -2,7 +2,7 @@ import os
 
 from mcp.server.fastmcp import FastMCP
 
-mcp = FastMCP("ls")
+mcp = FastMCP("file-manager")
 
 
 @mcp.tool()
