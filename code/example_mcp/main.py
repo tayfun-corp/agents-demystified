@@ -1,5 +1,6 @@
 import os
 
+import requests
 from mcp.server.fastmcp import FastMCP
 
 mcp = FastMCP("file-manager")
@@ -38,6 +39,14 @@ def read_file(path: str) -> str:
     with open(path, "r") as f:
         content = f.read()
     return content
+
+
+@mcp.tool()
+def get_weather() -> dict:
+    response = requests.get(
+        "http://api.weatherapi.com/v1/current.json?key=41a0f86f30ea49c3b3e193412251607&q=London&aqi=no"
+    )
+    return response.json()
 
 
 if __name__ == "__main__":
