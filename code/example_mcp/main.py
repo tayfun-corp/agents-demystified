@@ -42,9 +42,9 @@ def read_file(path: str) -> str:
 
 
 @mcp.tool()
-def get_weather() -> dict:
+def get_weather(city: str) -> dict:
     response = requests.get(
-        "http://api.weatherapi.com/v1/current.json?key=41a0f86f30ea49c3b3e193412251607&q=London&aqi=no"
+        f"http://api.weatherapi.com/v1/current.json?key=41a0f86f30ea49c3b3e193412251607&q={city}&aqi=no"
     )
     return response.json()
 
